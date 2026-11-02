@@ -127,12 +127,12 @@ const COMMANDS = {
     "  <span class='term-cyan'>Outcome:</span> Proved CheriBSD hardware capabilities successfully trap and abort out-of-bounds pointer writes without crashing whole systems.",
   ],
   homelab: [
-    "<span class='term-gold'>PROXC CYBER RANGE ARCHITECTURE:</span>",
-    "  • <span class='term-green'>Nodes:</span> 2 Physical Nodes (Lenovo IdeaPad + ASUS ROG Strix), 33 hosts/containers, 38 services",
-    "  • <span class='term-green'>Perimeter Firewall:</span> OPNsense 24.7 VM with Suricata 7.0.8 IDS on PPPoE WAN + Gigabit LAN",
-    "  • <span class='term-green'>SIEM & Telemetry:</span> Wazuh SIEM Manager (CT 106) with 27 active endpoint & network agents",
-    "  • <span class='term-green'>Deception & Purple Team:</span> Cerberus AI SOC + CT 206 Honeypot (8 trap ports, Level 12 SIEM alerts)",
-    "  • <span class='term-green'>Live Encyclopedia:</span> View full topology at https://info.fieldofruin.com",
+    "<span class='term-gold'>ENTERPRISE CYBER RANGE ARCHITECTURE:</span>",
+    "  • <span class='term-green'>Compute Infrastructure:</span> Multi-node clustered hypervisor hosting 30+ isolated security workloads",
+    "  • <span class='term-green'>Perimeter Defense:</span> OPNsense firewall with real-time Suricata IDS signature inspection",
+    "  • <span class='term-green'>SIEM & Telemetry:</span> Distributed Wazuh SIEM & OpenSearch cluster monitoring 27 endpoints",
+    "  • <span class='term-green'>Deception & Purple Team:</span> Automated SOC triage pipelines, multi-port honeypots & adversary emulation",
+    "  • <span class='term-green'>Zero-Trust Access:</span> Federated SSO identity provider & encrypted WireGuard administrative mesh",
   ],
   certifications: [
     "<span class='term-gold'>CREDENTIALS & HONORS:</span>",

@@ -12,7 +12,6 @@ Interactive, high-impact cybersecurity portfolio showcasing **Prabhu Manikandan 
 ## 🌐 Live Deployments
 - **Homelab Production**: [https://portfolio.fieldofruin.com](https://portfolio.fieldofruin.com) / [https://prabhu.fieldofruin.com](https://prabhu.fieldofruin.com)
 - **GitHub Pages CDN**: [https://ares-369.github.io](https://ares-369.github.io)
-- **Homelab Encyclopedia**: [https://info.fieldofruin.com](https://info.fieldofruin.com)
 
 ---
 
@@ -21,7 +20,7 @@ Interactive, high-impact cybersecurity portfolio showcasing **Prabhu Manikandan 
 - **University of Warwick**: Vulnerability research developing CheriBSD memory corruption and privilege escalation proof-of-concepts in **Lua** and **embedded C**; curated CTI via **MISP** and **OpenCTI**.
 - **TIAA GBS India**: Automated third-party supplier risk evaluations (reducing audit cycles from 2 weeks to 20 seconds); 24/7 global SOC log analysis with **Splunk**.
 - **Larsen & Toubro EAIC**: ISO 27001 internal audits and organizational training.
-- **ProxC Homelab Cyber Range**: 2-Node Proxmox VE 9.2 cluster (33 hosts, 38 services) featuring virtual **OPNsense 24.7** firewall with live **Suricata 7.0.8 IDS**, **Wazuh SIEM XDR** (27 telemetry agents), and an autonomous **Cerberus AI Blue Team SOC**.
+- **Enterprise Cyber Range**: Clustered hypervisor hosting 30+ segmented security workloads, virtualized **OPNsense** firewall with live **Suricata IDS**, distributed **Wazuh SIEM XDR** (27 telemetry agents), and an autonomous **Purple Team SOC**.
 
 ---
 
@@ -32,6 +31,6 @@ This portfolio is backed by single-source continuous sync:
 ```
 It automatically:
 1. Commits local changes to Git.
-2. Synchronizes to self-hosted Forgejo on CT 122 (`git.fieldofruin.com`).
-3. Deploys to CT 120 production runtime (`portfolio.fieldofruin.com` & `prabhu.fieldofruin.com`).
+2. Synchronizes to self-hosted Git repository mirror.
+3. Deploys to homelab production runtime (`portfolio.fieldofruin.com` & `prabhu.fieldofruin.com`).
 4. Pushes upstream to GitHub (`ares-369.github.io` / `github.com/ares-369`).

@@ -97,7 +97,7 @@ class PortfolioHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(b"""<!DOCTYPE html>
 <html>
 <head><title>403 Forbidden</title><style>body{background:#07090e;color:#f8fafc;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;}div{text-align:center;padding:30px;border:1px solid #d4a03e;border-radius:8px;}h1{color:#ef4444;margin:0 0 10px 0;}p{color:#94a3b8;}</style></head>
-<body><div><h1>403 Forbidden</h1><p>Portfolio Admin Studio is restricted to the local network (10.0.0.0/24) or authorized credentials.</p></div></body></html>""")
+<body><div><h1>403 Forbidden</h1><p>Portfolio Admin Studio is restricted to the local network authorized administrative access.</p></div></body></html>""")
                 return
 
             editor_path = os.path.join(BASE_DIR, "editor.html")
