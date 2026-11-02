@@ -26,7 +26,11 @@ def build():
     html = re.sub(r'<span class="brand-sub">[^<]+</span>', f'<span class="brand-sub">{p.get("headline", "").upper()}</span>', html)
     html = re.sub(r'<span class="pill-text">[^<]+</span>', f'<span class="pill-text">{p.get("navTelemetry", "SOC OPERATIONS // THREAT HUNTING")}</span>', html)
     html = re.sub(r'<span class="status-badge"><i class="mdi mdi-shield-check"></i> [^<]+</span>', f'<span class="status-badge"><i class="mdi mdi-shield-check"></i> {p.get("statusBadge", "")}</span>', html)
-    html = re.sub(r'<span class="status-location"><i class="mdi mdi-map-marker-radius"></i> [^<]+</span>', f'<span class="status-location"><i class="mdi mdi-map-marker-radius"></i> {p.get("location", "UNITED KINGDOM")}</span>', html)
+    if p.get("location"):
+        html = re.sub(r'<span class="status-location"><i class="mdi mdi-map-marker-radius"></i> [^<]+</span>', f'<span class="status-location"><i class="mdi mdi-map-marker-radius"></i> {p.get("location")}</span>', html)
+    else:
+        html = re.sub(r'\s*<span class="status-sep">/</span>\s*<span class="status-location"><i class="mdi mdi-map-marker-radius"></i> [^<]+</span>', '', html)
+        html = re.sub(r'<span class="status-location"><i class="mdi mdi-map-marker-radius"></i> [^<]+</span>', '', html)
     
     # Hero Name
     name_parts = p.get("fullName", "PRABHU MANIKANDAN VISWANATHAN").split()
