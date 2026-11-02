@@ -1,0 +1,183 @@
+{
+  "personal": {
+    "fullName": "PRABHU MANIKANDAN VISWANATHAN",
+    "headline": "L2 Security Analyst & Primary Threat Hunter",
+    "location": "UNITED KINGDOM",
+    "email": "prabhumanikandan369@gmail.com",
+    "linkedin": "https://linkedin.com/in/prabhu-manikandan",
+    "github": "https://github.com/ares-369",
+    "cvFilename": "Prabhu_Manikandan_Viswanathan_CV.pdf",
+    "statusBadge": "PRIMARY THREAT HUNTER // GLOBAL ENTERPRISE",
+    "navTelemetry": "SOC OPERATIONS // THREAT HUNTING",
+    "summaryLead": "Dedicated Cyber Security Analyst and Primary Threat Hunter with a proven track record in complex incident response, proactive threat hunting, and cloud security investigations across global retail enterprise environments.",
+    "summaryBody": "Currently serving as an L2 Security Analyst managing end-to-end incident response, cloud exposure investigations, and threat hunting operations at Victoria's Secret (VS&Co). Demonstrated expertise in rapid malware analysis, SecOps automation, and leveraging CrowdStrike Falcon, Google SecOps, and Wiz to secure critical infrastructure and mitigate advanced threats. Backed by an NCSC-certified Master of Science (Distinction) in Cyber Security Engineering from the University of Warwick, hands-on CheriBSD memory-safety vulnerability research, and continuous live cyber range engineering."
+  },
+  "stats": {
+    "yearsExperience": "3\u20134",
+    "socTier": "L2",
+    "homelabNodes": "33",
+    "wazuhAgents": "27"
+  },
+  "pillars": [
+    {
+      "icon": "mdi-crosshairs-gps",
+      "title": "Hypothesis-Driven Threat Hunting",
+      "desc": "Designing custom queries and analytics across endpoint, identity, and cloud telemetry to hunt for advanced persistent threats (APTs) and evasive IOCs before alerts trigger."
+    },
+    {
+      "icon": "mdi-shield-bug-outline",
+      "title": "Rapid Malware Analysis & IR",
+      "desc": "Extracting malicious indicators during active security events and executing edge URI/domain blocks at the perimeter ahead of automated signature detection."
+    },
+    {
+      "icon": "mdi-cloud-lock-outline",
+      "title": "Cloud Security & Attack Paths",
+      "desc": "Investigating complex cloud exposures, toxic combinations, and IAM privilege escalations utilizing Wiz, Cloudflare WAF, and Varonis DLP telemetry."
+    }
+  ],
+  "experience": [
+    {
+      "role": "L2 Security Analyst & Primary Threat Hunter",
+      "company": "Victoria's Secret (VS&Co) \u00b7 Global Retail Enterprise",
+      "duration": "Dec 2025 \u2013 Present",
+      "location": "Enterprise SOC",
+      "badge": "Current Enterprise Role",
+      "isCurrent": true,
+      "bullets": [
+        "<strong>Primary Threat Hunter:</strong> Serve as the primary threat hunter for a Fortune 500 global retail enterprise, designing and executing proactive threat hunts across endpoint, identity, and cloud telemetry using <strong>CrowdStrike Falcon</strong> and <strong>Google SecOps</strong> to uncover advanced IOCs, TTPs, and APT activity.",
+        "<strong>End-to-End Incident Response:</strong> Manage the full incident response lifecycle beyond standard alert triage, successfully investigating and containing critical IR cases and suspected phishing and malware campaigns.",
+        "<strong>Cloud Exposure & Attack Paths:</strong> Conduct deep-dive cloud and attack surface investigations utilizing <strong>Wiz</strong>, <strong>Cloudflare</strong>, and <strong>Varonis</strong> to trace attack paths, assess cloud exposure, and remediate cloud-native security threats.",
+        "<strong>Perimeter Enforcement:</strong> Spearheaded rapid malware analysis during an active security incident, extracting malicious indicators and blocking URIs at the network edge prior to automated CrowdStrike EDR detections firing."
+      ],
+      "tags": [
+        "CrowdStrike Falcon",
+        "Google SecOps",
+        "Wiz Cloud Security",
+        "Cloudflare",
+        "Varonis",
+        "Malware Analysis",
+        "Threat Hunting",
+        "Incident Response"
+      ]
+    },
+    {
+      "role": "Research Assistant (ResAuto & Cyber Observatory)",
+      "company": "University of Warwick \u00b7 Cyber Security Centre",
+      "duration": "Sep 2024 \u2013 Mar 2025",
+      "location": "Coventry, UK",
+      "badge": "Academic & Vulnerability Research",
+      "isCurrent": false,
+      "bullets": [
+        "<strong>CheriBSD Vulnerability Research:</strong> Developed vulnerability proof-of-concepts in <strong>CheriBSD</strong> for automotive embedded systems using <strong>Lua</strong> and <strong>embedded C</strong>, simulating memory corruption and privilege escalation attacks to assess hardware compartmentalization effectiveness.",
+        "<strong>Threat Intelligence Observatory:</strong> Conducted threat intelligence research for emerging exploits in critical infrastructure and leveraged <strong>MISP</strong> and <strong>OpenCTI</strong> to analyze IOCs for enhanced incident detection.",
+        "<strong>Strategic Dashboards:</strong> Generated threat trend reports and analytical dashboards to support national security and strategic decision-making."
+      ],
+      "tags": [
+        "CheriBSD",
+        "Memory Safety",
+        "Embedded C",
+        "Lua",
+        "MISP",
+        "OpenCTI",
+        "Threat Intelligence",
+        "Automotive Security"
+      ]
+    },
+    {
+      "role": "Cyber Security Intern",
+      "company": "TIAA GBS India \u00b7 Global Financial Services",
+      "duration": "Feb 2023 \u2013 Apr 2023",
+      "location": "Pune, India",
+      "badge": "Enterprise SOC",
+      "isCurrent": false,
+      "bullets": [
+        "<strong>SecOps Automation:</strong> Automated third-party supplier risk assessment processes, drastically reducing supplier evaluation cycles from <strong>2 weeks to 20 seconds</strong> and dramatically boosting audit throughput.",
+        "<strong>Log Analysis & SIEM Triage:</strong> Performed in-depth log analysis using <strong>Splunk</strong> to detect, triage, and investigate security incidents in a 24/7 global financial SOC environment.",
+        "<strong>CMMI Governance:</strong> Streamlined cybersecurity maturity assessments using the <strong>CMMI framework</strong> for improved senior leadership visibility."
+      ],
+      "tags": [
+        "Splunk",
+        "Risk Automation",
+        "Supplier Security",
+        "CMMI",
+        "Log Analysis",
+        "SOC Operations"
+      ]
+    },
+    {
+      "role": "Project Trainee (ISMS)",
+      "company": "Larsen & Toubro EAIC \u00b7 Industrial Engineering Enterprise",
+      "duration": "Jul 2022 \u2013 Aug 2022",
+      "location": "Mumbai, India",
+      "badge": "Governance, Risk & Compliance",
+      "isCurrent": false,
+      "bullets": [
+        "<strong>ISO 27001 Internal Audits:</strong> Conducted comprehensive ISO/IEC 27001 ISMS internal audits, identifying and remediating major security non-conformities across enterprise business units.",
+        "<strong>Employee Security Training:</strong> Designed training programs and educated <strong>100+ employees</strong> in modern security hygiene, phishing mitigation, and governance policies."
+      ],
+      "tags": [
+        "ISO 27001",
+        "ISMS",
+        "Compliance",
+        "Internal Audits",
+        "Security Awareness"
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "title": "Master of Science in Cyber Security Engineering",
+      "inst": "The University of Warwick \u00b7 NCSC Certified",
+      "year": "Oct 2023 \u2013 Oct 2024 \u00b7 Graduated with Distinction",
+      "tag": "POSTGRADUATE DEGREE \u00b7 DISTINCTION",
+      "desc": "Specialized in vulnerability analysis, embedded systems security, cryptographic protocol validation, and autonomous threat observatory research.",
+      "icon": "mdi-school",
+      "highlight": true
+    },
+    {
+      "title": "ISO/IEC 27001 ISMS Lead Auditor",
+      "inst": "British Standards Institution (BSI)",
+      "year": "Certified Lead Auditor",
+      "tag": "GLOBAL CERTIFICATION",
+      "desc": "Qualified to lead and conduct full-scope ISO/IEC 27001 information security audits, manage audit teams, assess control conformity, and establish risk governance.",
+      "icon": "mdi-certificate",
+      "highlight": false
+    },
+    {
+      "title": "Black Hat USA 2024 Scholar",
+      "inst": "Black Hat USA \u00b7 Las Vegas, Nevada",
+      "year": "Awarded Student Scholarship",
+      "tag": "INTERNATIONAL SCHOLARSHIP",
+      "desc": "Selected internationally for a merit scholarship to attend the world's premiere information security conference, engaging with cutting-edge exploit research.",
+      "icon": "mdi-medal",
+      "highlight": false
+    },
+    {
+      "title": "ISACA UK Digital Scholarship 2024",
+      "inst": "ISACA (Information Systems Audit and Control Association)",
+      "year": "International Recipient",
+      "tag": "SCHOLARSHIP & LEADERSHIP",
+      "desc": "Awarded international scholarship in recognition of exceptional cybersecurity promise, audit competencies, and academic achievement.",
+      "icon": "mdi-shield-crown",
+      "highlight": false
+    },
+    {
+      "title": "B.Tech (Hons.) in CSE (Cyber Security & Forensics)",
+      "inst": "University of Petroleum and Energy Studies (UPES)",
+      "year": "Aug 2019 \u2013 May 2023",
+      "tag": "UNDERGRADUATE DEGREE",
+      "desc": "Comprehensive computer science foundation with specialization in computer forensics, network defense, Linux systems administration, and malware analysis.",
+      "icon": "mdi-book-education",
+      "highlight": false
+    },
+    {
+      "title": "Enterprise SecOps & UK Work Authorization",
+      "inst": "United Kingdom \u00b7 Immediate Availability",
+      "year": "Full Unrestricted Right to Work",
+      "tag": "PROFESSIONAL STATUS & ELIGIBILITY",
+      "desc": "Full professional authorization to work in the United Kingdom with immediate availability for senior cyber security analyst, incident response, and threat hunting positions.",
+      "icon": "mdi-shield-account-outline",
+      "highlight": false
+    }
+  ]
+}

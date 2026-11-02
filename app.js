@@ -208,3 +208,10 @@ function copyText(text, btn) {
     console.error('Clipboard copy failed:', err);
   });
 }
+
+// 7. Local Admin Studio Shortcut (Ctrl+Shift+E or Alt+E)
+document.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey && e.shiftKey && e.key === "E") || (e.altKey && e.key === "e")) {
+    window.location.href = "/admin";
+  }
+});

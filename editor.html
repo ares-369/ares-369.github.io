@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Admin Studio | Prabhu Manikandan Viswanathan</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background-color: #06080d; color: #f1f5f9; padding-bottom: 120px; }
+    .admin-nav {
+      background: rgba(10, 14, 22, 0.95);
+      border-bottom: 1px solid var(--border-glow);
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .admin-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-header);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      letter-spacing: 1px;
+    }
+    .admin-badges { display: flex; gap: 10px; }
+    .badge-lan {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--accent-emerald);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-git {
+      background: rgba(212, 160, 62, 0.15);
+      border: 1px solid var(--border-glow);
+      color: var(--accent-gold);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .admin-wrap { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 28px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-header);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 10px 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition-fast);
+      white-space: nowrap;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      color: var(--accent-gold-light);
+      border-bottom-color: var(--accent-gold);
+    }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+    .form-card-title {
+      font-family: var(--font-header);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: span 2; }
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-input, .form-textarea {
+      background: #090c12;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.94rem;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(212, 160, 62, 0.2);
+    }
+    .form-textarea { min-height: 110px; line-height: 1.5; font-family: var(--font-mono); font-size: 0.88rem; }
+    .help-hint { font-size: 0.74rem; color: var(--text-dim); }
+
+    .item-block {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .item-num { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-gold); }
+    .btn-del {
+      background: transparent;
+      border: none;
+      color: var(--accent-red);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: var(--transition-fast);
+    }
+    .btn-del:hover { background: rgba(239, 68, 68, 0.15); }
+
+    .btn-add {
+      background: rgba(212, 160, 62, 0.1);
+      border: 1px dashed var(--border-glow);
+      color: var(--accent-gold);
+      font-family: var(--font-header);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition-fast);
+    }
+    .btn-add:hover { background: rgba(212, 160, 62, 0.2); }
+
+    /* Sticky Bottom Action Bar */
+    .save-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(8, 11, 18, 0.95);
+      border-top: 1px solid var(--border-glow);
+      padding: 16px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 200;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
+    }
+    .save-status {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .save-actions { display: flex; gap: 14px; }
+  </style>
+</head>
+<body>
+  <nav class="admin-nav">
+    <div class="admin-title">
+      <img src="logo.png" alt="Logo" style="width:28px;height:28px;object-fit:contain">
+      <span>PORTFOLIO ADMIN STUDIO</span>
+    </div>
+    <div class="admin-badges">
+      <span class="badge-lan"><i class="mdi mdi-lan-connect"></i> LAN AUTHENTICATED</span>
+      <span class="badge-git"><i class="mdi mdi-git"></i> GITHUB + HOMELAB SYNC</span>
+      <a href="/" target="_blank" class="btn-hud"><i class="mdi mdi-open-in-new"></i> View Live Site</a>
+    </div>
+  </nav>
+
+  <main class="admin-wrap">
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('profile', this)"><i class="mdi mdi-account-cog"></i> Profile &amp; Hero</button>
+      <button class="tab-btn" onclick="switchTab('experience', this)"><i class="mdi mdi-briefcase-outline"></i> Experience Timeline</button>
+      <button class="tab-btn" onclick="switchTab('credentials', this)"><i class="mdi mdi-certificate-outline"></i> Credentials &amp; Degrees</button>
+      <button class="tab-btn" onclick="switchTab('cv', this)"><i class="mdi mdi-file-pdf-box"></i> Resume PDF Upload</button>
+      <button class="tab-btn" onclick="switchTab('sync', this)"><i class="mdi mdi-sync"></i> Git &amp; Deploy Status</button>
+    </div>
+
+    <!-- TAB 1: PROFILE & HERO -->
+    <div class="tab-pane active" id="tab-profile">
+      <div class="form-card">
+        <div class="form-card-title">Identity &amp; Top Navigation</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-input" id="inp-name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Professional Role / Headline</label>
+            <input type="text" class="form-input" id="inp-headline">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Location</label>
+            <input type="text" class="form-input" id="inp-location">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Top Nav Status Indicator</label>
+            <input type="text" class="form-input" id="inp-telemetry">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" id="inp-email">
+          </div>
+          <div class="form-group">
+            <label class="form-label">LinkedIn URL</label>
+            <input type="url" class="form-input" id="inp-linkedin">
+          </div>
+          <div class="form-group">
+            <label class="form-label">GitHub URL</label>
+            <input type="url" class="form-input" id="inp-github">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Hero Banner Badge</label>
+            <input type="text" class="form-input" id="inp-statusbadge">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-card-title">Executive Summary</div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Summary Lead (Bold Opener)</label>
+          <textarea class="form-textarea" id="inp-sumlead" style="min-height:75px"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Full Narrative Body</label>
+          <textarea class="form-textarea" id="inp-sumbody" style="min-height:120px"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: EXPERIENCE -->
+    <div class="tab-pane" id="tab-experience">
+      <div class="form-card">
+        <div class="form-card-title">
+          <span>Enterprise &amp; Research Career History</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Editable roles with live formatting</span>
+        </div>
+        <div id="experienceList"></div>
+        <button class="btn-add" onclick="addExperience()"><i class="mdi mdi-plus-circle"></i> Add New Career Role</button>
+      </div>
+    </div>
+
+    <!-- TAB 3: CREDENTIALS -->
+    <div class="tab-pane" id="tab-credentials">
+      <div class="form-card">
+        <div class="form-card-title">
+          <span>Degrees, Certifications &amp; Scholarships</span>
+        </div>
+        <div id="credentialsList"></div>
+        <button class="btn-add" onclick="addCredential()"><i class="mdi mdi-plus-circle"></i> Add New Credential</button>
+      </div>
+    </div>
+
+    <!-- TAB 4: CV UPLOAD -->
+    <div class="tab-pane" id="tab-cv">
+      <div class="form-card">
+        <div class="form-card-title">Upload Updated Resume / CV (PDF)</div>
+        <p style="color:var(--text-muted);margin-bottom:18px">Upload a new PDF version of your CV to instantly replace <code>Prabhu_Manikandan_Viswanathan_CV.pdf</code> across your homelab and GitHub Pages.</p>
+        <div style="display:flex;align-items:center;gap:14px;background:#090c12;padding:18px;border-radius:8px;border:1px dashed var(--border-subtle)">
+          <input type="file" id="cvFileInput" accept="application/pdf" style="color:var(--text-secondary)">
+          <button class="btn-secondary" onclick="uploadCV()"><i class="mdi mdi-upload"></i> Upload &amp; Replace PDF</button>
+        </div>
+        <div id="cvUploadMsg" style="margin-top:12px;font-family:var(--font-mono);font-size:0.85rem"></div>
+      </div>
+    </div>
+
+    <!-- TAB 5: GIT & DEPLOY STATUS -->
+    <div class="tab-pane" id="tab-sync">
+      <div class="form-card">
+        <div class="form-card-title">Deployment &amp; Git Remote Hub</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Homelab Production Runtime</label>
+            <div style="font-family:var(--font-mono);color:var(--accent-emerald)">CT 120 (10.0.0.159:8089) · proxc-portfolio.service</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Public Endpoints</label>
+            <div style="font-family:var(--font-mono);color:var(--accent-gold)">portfolio.fieldofruin.com · prabhu.fieldofruin.com</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">GitHub Pages CDN</label>
+            <div style="font-family:var(--font-mono);color:var(--accent-cyan)">https://ares-369.github.io</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Forgejo Internal Mirror</label>
+            <div style="font-family:var(--font-mono);color:var(--text-secondary)">http://10.0.0.162:3000/proxc-admin/prabhu-portfolio</div>
+          </div>
+        </div>
+        <div style="margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:14px">
+          <button class="btn-secondary" onclick="triggerManualSync()"><i class="mdi mdi-sync"></i> Force Manual Git Push &amp; Sync</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Sticky Save Bar -->
+  <div class="save-bar">
+    <div class="save-status" id="saveStatus">
+      <span class="pulse-dot"></span>
+      <span id="statusText">Ready to save changes</span>
+    </div>
+    <div class="save-actions">
+      <a href="/" target="_blank" class="btn-secondary"><i class="mdi mdi-eye-outline"></i> Preview Site</a>
+      <button class="btn-primary" onclick="saveAllChanges()"><i class="mdi mdi-cloud-upload"></i> Save &amp; Sync to GitHub</button>
+    </div>
+  </div>
+
+  <div class="toast-popup" id="adminToast">Changes saved successfully!</div>
+
+  <script>
+    let PORTFOLIO_DATA = {};
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const pane = document.getElementById('tab-' + tabId);
+      if (pane) pane.classList.add('active');
+    }
+
+    // Load initial data from server
+    async function loadData() {
+      try {
+        const res = await fetch('/api/get-data');
+        if (!res.ok) throw new Error('Failed to fetch portfolio data');
+        PORTFOLIO_DATA = await res.json();
+        populateFields();
+      } catch (err) {
+        console.error(err);
+        document.getElementById('statusText').textContent = 'Error loading data from server: ' + err.message;
+      }
+    }
+
+    function populateFields() {
+      const p = PORTFOLIO_DATA.personal || {};
+      document.getElementById('inp-name').value = p.fullName || '';
+      document.getElementById('inp-headline').value = p.headline || '';
+      document.getElementById('inp-location').value = p.location || '';
+      document.getElementById('inp-telemetry').value = p.navTelemetry || '';
+      document.getElementById('inp-email').value = p.email || '';
+      document.getElementById('inp-linkedin').value = p.linkedin || '';
+      document.getElementById('inp-github').value = p.github || '';
+      document.getElementById('inp-statusbadge').value = p.statusBadge || '';
+      document.getElementById('inp-sumlead').value = p.summaryLead || '';
+      document.getElementById('inp-sumbody').value = p.summaryBody || '';
+
+      renderExperience();
+      renderCredentials();
+    }
+
+    function renderExperience() {
+      const list = document.getElementById('experienceList');
+      list.innerHTML = '';
+      (PORTFOLIO_DATA.experience || []).forEach((exp, idx) => {
+        const item = document.createElement('div');
+        item.className = 'item-block';
+        item.innerHTML = `
+          <div class="item-header">
+            <span class="item-num">// ROLE 0${idx + 1} — ${exp.company || 'New Entry'}</span>
+            <button class="btn-del" onclick="deleteExperience(${idx})" title="Delete Role"><i class="mdi mdi-delete-outline"></i></button>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Role Title</label>
+              <input type="text" class="form-input" value="${exp.role || ''}" oninput="updateExpField(${idx}, 'role', this.value)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Company / Organization</label>
+              <input type="text" class="form-input" value="${exp.company || ''}" oninput="updateExpField(${idx}, 'company', this.value)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Duration</label>
+              <input type="text" class="form-input" value="${exp.duration || ''}" oninput="updateExpField(${idx}, 'duration', this.value)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Location</label>
+              <input type="text" class="form-input" value="${exp.location || ''}" oninput="updateExpField(${idx}, 'location', this.value)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Badge Label</label>
+              <input type="text" class="form-input" value="${exp.badge || ''}" oninput="updateExpField(${idx}, 'badge', this.value)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tech Tags (Comma-Separated)</label>
+              <input type="text" class="form-input" value="${(exp.tags || []).join(', ')}" oninput="updateExpTags(${idx}, this.value)">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Bullet Points (One per line)</label>
+              <textarea class="form-textarea" oninput="updateExpBullets(${idx}, this.value)">${(exp.bullets || []).join('\n')}</textarea>
+            </div>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function updateExpField(idx, field, val) {
+      if (PORTFOLIO_DATA.experience && PORTFOLIO_DATA.experience[idx]) {
+        PORTFOLIO_DATA.experience[idx][field] = val;
+      }
+    }
+    function updateExpTags(idx, val) {
+      if (PORTFOLIO_DATA.experience && PORTFOLIO_DATA.experience[idx]) {
+        PORTFOLIO_DATA.experience[idx].tags = val.split(',').map(s => s.trim()).filter(Boolean);
+      }
+    }
+    function updateExpBullets(idx, val) {
+      if (PORTFOLIO_DATA.experience && PORTFOLIO_DATA.experience[idx]) {
+        PORTFOLIO_DATA.experience[idx].bullets = val.split('\n').map(s => s.trim()).filter(Boolean);
+      }
+    }
+    function addExperience() {
+      PORTFOLIO_DATA.experience = PORTFOLIO_DATA.experience || [];
+      PORTFOLIO_DATA.experience.push({
+        role: "New Security Role",
+        company: "Organization Name",
+        duration: "Month Year – Present",
+        location: "Location",
+        badge: "Specialization",
+        isCurrent: false,
+        bullets: ["Key achievement or responsibility."],
+        tags: ["Cyber Security", "Threat Hunting"]
+      });
+      renderExperience();
+    }
+    function deleteExperience(idx) {
+      if (confirm('Delete this role from your portfolio?')) {
+        PORTFOLIO_DATA.experience.splice(idx, 1);
+        renderExperience();
+      }
+    }
+
+    function renderCredentials() {
+      const list = document.getElementById('credentialsList');
+      list.innerHTML = '';
+      (PORTFOLIO_DATA.credentials || []).forEach((cred, idx) => {
+        const item = document.createElement('div');
+        item.className = 'item-block';
+        item.innerHTML = `
+          <div class="item-header">
+            <span class="item-num">// CREDENTIAL 0${idx + 1} — ${cred.title || 'New Item'}</span>
+            <button class="btn-del" onclick="deleteCredential(${idx})" title="Delete Credential"><i class="mdi mdi-delete-outline"></i></button>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Title</label>
+              <input type="text" class="form-input" value="${cred.title || ''}" oninput="updateCredField(${idx}, 'title', this.value)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Institution / Issuer</label>
+              <input type="text" class="form-input" value="${cred.inst || ''}" oninput="updateCredField(${idx}, 'inst', this.value)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Year / Status</label>
+              <input type="text" class="form-input" value="${cred.year || ''}" oninput="updateCredField(${idx}, 'year', this.value)">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tag / Eyebrow</label>
+              <input type="text" class="form-input" value="${cred.tag || ''}" oninput="updateCredField(${idx}, 'tag', this.value)">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Description</label>
+              <textarea class="form-textarea" style="min-height:75px" oninput="updateCredField(${idx}, 'desc', this.value)">${cred.desc || ''}</textarea>
+            </div>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function updateCredField(idx, field, val) {
+      if (PORTFOLIO_DATA.credentials && PORTFOLIO_DATA.credentials[idx]) {
+        PORTFOLIO_DATA.credentials[idx][field] = val;
+      }
+    }
+    function addCredential() {
+      PORTFOLIO_DATA.credentials = PORTFOLIO_DATA.credentials || [];
+      PORTFOLIO_DATA.credentials.push({
+        title: "Certification / Degree Title",
+        inst: "Issuing Body",
+        year: "Year",
+        tag: "CERTIFICATION",
+        desc: "Description of the qualification and competency.",
+        icon: "mdi-certificate",
+        highlight: false
+      });
+      renderCredentials();
+    }
+    function deleteCredential(idx) {
+      if (confirm('Delete this credential?')) {
+        PORTFOLIO_DATA.credentials.splice(idx, 1);
+        renderCredentials();
+      }
+    }
+
+    // Save All Changes and Trigger Sync
+    async function saveAllChanges() {
+      const statusText = document.getElementById('statusText');
+      statusText.innerHTML = '<i class="mdi mdi-loading mdi-spin"></i> Saving changes &amp; syncing to GitHub...';
+
+      // Harvest Tab 1 fields
+      PORTFOLIO_DATA.personal = PORTFOLIO_DATA.personal || {};
+      PORTFOLIO_DATA.personal.fullName = document.getElementById('inp-name').value;
+      PORTFOLIO_DATA.personal.headline = document.getElementById('inp-headline').value;
+      PORTFOLIO_DATA.personal.location = document.getElementById('inp-location').value;
+      PORTFOLIO_DATA.personal.navTelemetry = document.getElementById('inp-telemetry').value;
+      PORTFOLIO_DATA.personal.email = document.getElementById('inp-email').value;
+      PORTFOLIO_DATA.personal.linkedin = document.getElementById('inp-linkedin').value;
+      PORTFOLIO_DATA.personal.github = document.getElementById('inp-github').value;
+      PORTFOLIO_DATA.personal.statusBadge = document.getElementById('inp-statusbadge').value;
+      PORTFOLIO_DATA.personal.summaryLead = document.getElementById('inp-sumlead').value;
+      PORTFOLIO_DATA.personal.summaryBody = document.getElementById('inp-sumbody').value;
+
+      try {
+        const res = await fetch('/api/save-data', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(PORTFOLIO_DATA)
+        });
+        const result = await res.json();
+        if (result.status === 'success') {
+          statusText.innerHTML = '✓ ' + result.message;
+          const toast = document.getElementById('adminToast');
+          toast.textContent = result.message;
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 3000);
+        } else {
+          statusText.textContent = 'Error: ' + (result.error || 'Failed to save');
+        }
+      } catch (err) {
+        statusText.textContent = 'Error saving changes: ' + err.message;
+      }
+    }
+
+    // Manual Force Git Sync
+    async function triggerManualSync() {
+      const statusText = document.getElementById('statusText');
+      statusText.innerHTML = '<i class="mdi mdi-loading mdi-spin"></i> Pushing to GitHub &amp; Forgejo...';
+      try {
+        const res = await fetch('/api/sync', { method: 'POST' });
+        const result = await res.json();
+        statusText.innerHTML = '✓ ' + (result.message || 'Sync complete!');
+      } catch (err) {
+        statusText.textContent = 'Sync failed: ' + err.message;
+      }
+    }
+
+    // Upload CV PDF
+    async function uploadCV() {
+      const fileInput = document.getElementById('cvFileInput');
+      const msg = document.getElementById('cvUploadMsg');
+      if (!fileInput.files.length) {
+        msg.textContent = 'Please select a PDF file first.';
+        msg.style.color = '#ef4444';
+        return;
+      }
+      msg.textContent = 'Uploading and deploying CV...';
+      msg.style.color = '#f59e0b';
+      const formData = new FormData();
+      formData.append('cv', fileInput.files[0]);
+
+      try {
+        const res = await fetch('/api/upload-cv', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await res.json();
+        if (result.status === 'success') {
+          msg.textContent = '✓ CV uploaded and synced to GitHub & Homelab!';
+          msg.style.color = '#10b981';
+        } else {
+          msg.textContent = 'Upload failed: ' + result.error;
+          msg.style.color = '#ef4444';
+        }
+      } catch (err) {
+        msg.textContent = 'Upload error: ' + err.message;
+        msg.style.color = '#ef4444';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadData);
+  </script>
+</body>
+</html>
