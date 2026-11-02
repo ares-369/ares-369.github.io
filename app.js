@@ -141,7 +141,7 @@ const COMMANDS = {
     "  • <span class='term-cyan'>Black Hat USA 2024 Scholar</span> — Awarded competitive student conference scholarship",
     "  • <span class='term-cyan'>ISACA UK Digital Scholarship 2024</span> — International digital scholarship recipient",
     "  • <span class='term-cyan'>B.Tech (Hons.) Cyber Security & Forensics</span> — UPES",
-    "  • <span class='term-cyan'>UK Graduate Visa</span> — Active and fully authorized to work in the UK through Feb 2027",
+    "  • <span class='term-cyan'>Work Authorization:</span> Full unrestricted right to work in the United Kingdom with immediate availability",
   ],
   contact: [
     "<span class='term-gold'>DIRECT COMMUNICATIONS:</span>",

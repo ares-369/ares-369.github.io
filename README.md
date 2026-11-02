@@ -1,6 +1,6 @@
 # Prabhu Manikandan Viswanathan — Cyber Security & Threat Hunter Portfolio
 
-[![UK Graduate Visa](https://img.shields.io/badge/UK_Graduate_Visa-Valid_Feb_2027-10b981?style=for-the-badge&logo=passport)](https://portfolio.fieldofruin.com)
+[![UK Work Authorization](https://img.shields.io/badge/UK_Right_to_Work-Unrestricted_Authorization-10b981?style=for-the-badge&logo=shield)](https://portfolio.fieldofruin.com)
 [![MSc Warwick](https://img.shields.io/badge/Warwick_MSc-Distinction_(NCSC)-d4a03e?style=for-the-badge&logo=academia)](https://portfolio.fieldofruin.com)
 [![ISO 27001](https://img.shields.io/badge/BSI-ISO_27001_Lead_Auditor-blue?style=for-the-badge&logo=bsi)](https://portfolio.fieldofruin.com)
 [![Enterprise SOC](https://img.shields.io/badge/Enterprise_Role-L2_Threat_Hunter-red?style=for-the-badge&logo=shield)](https://portfolio.fieldofruin.com)
