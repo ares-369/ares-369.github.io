@@ -209,9 +209,34 @@ function copyText(text, btn) {
   });
 }
 
-// 7. Local Admin Studio Shortcut (Ctrl+Shift+E or Alt+E)
+// 7. Local Admin Studio Shortcuts (Mac: Cmd+E or Cmd+Shift+E; Win/Linux: Ctrl+E, Alt+E)
 document.addEventListener("keydown", (e) => {
-  if ((e.ctrlKey && e.shiftKey && e.key === "E") || (e.altKey && e.key === "e")) {
+  const isKeyE = (e.code === "KeyE" || e.key === "e" || e.key === "E");
+  if (isKeyE && (e.metaKey || e.ctrlKey || e.altKey)) {
+    // Avoid triggering while typing in normal text inputs unless Cmd/Ctrl is pressed
+    if (document.activeElement && (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA")) {
+      if (!e.metaKey && !e.ctrlKey) return;
+    }
+    e.preventDefault();
     window.location.href = "/admin";
   }
 });
+
+// Also add a Triple-Click on Brand Logo to quickly open /admin on Mac/Trackpad
+const brandLogo = document.querySelector(".brand-crest");
+if (brandLogo) {
+  let clickCount = 0;
+  let clickTimer = null;
+  brandLogo.style.cursor = "pointer";
+  brandLogo.addEventListener("click", (e) => {
+    clickCount++;
+    clearTimeout(clickTimer);
+    if (clickCount >= 3) {
+      e.preventDefault();
+      window.location.href = "/admin";
+      clickCount = 0;
+    } else {
+      clickTimer = setTimeout(() => { clickCount = 0; }, 500);
+    }
+  });
+}
