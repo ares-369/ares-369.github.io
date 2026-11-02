@@ -13,9 +13,9 @@
     "summaryBody": "Currently serving as an L2 Security Analyst managing end-to-end incident response, cloud exposure investigations, and threat hunting operations at Victoria's Secret (VS&Co). Demonstrated expertise in rapid malware analysis, SecOps automation, and leveraging CrowdStrike Falcon, Google SecOps, and Wiz to secure critical infrastructure and mitigate advanced threats. Backed by an NCSC-certified Master of Science (Distinction) in Cyber Security Engineering from the University of Warwick, hands-on CheriBSD memory-safety vulnerability research, and continuous live cyber range engineering."
   },
   "stats": {
-    "yearsExperience": "3\u20134",
+    "yearsExperience": "4+",
     "socTier": "L2",
-    "homelabNodes": "33",
+    "homelabNodes": "30+",
     "wazuhAgents": "27"
   },
   "pillars": [
