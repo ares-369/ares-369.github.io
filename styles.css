@@ -974,8 +974,9 @@ body {
 }
 
 /* =============================================================================
-   HOMELAB CYBER RANGE
+   ENTERPRISE CYBER RANGE & RESEARCH LAB
    ============================================================================= */
+.range-grid,
 .homelab-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1040,6 +1041,7 @@ body {
 
 .hl-spec strong { color: var(--accent-gold); }
 
+.range-callout,
 .homelab-callout {
   background: linear-gradient(135deg, rgba(212, 160, 62, 0.1), rgba(16, 185, 129, 0.05));
   border: 1px solid var(--border-glow);
@@ -1437,6 +1439,7 @@ body {
 @media (max-width: 820px) {
   .nav-links { display: none; }
   .nav-toggle { display: block; }
+  .range-grid,
   .homelab-grid { grid-template-columns: 1fr; }
   .cred-grid { grid-template-columns: 1fr; }
   .footer-container { flex-direction: column; text-align: center; }
@@ -1456,6 +1459,7 @@ body {
   .telemetry-pill { display: none; }
   .stat-row { grid-template-columns: 1fr 1fr; gap: 8px; }
   .stat-number { font-size: 1.6rem; }
+  .range-callout,
   .homelab-callout { flex-direction: column; align-items: flex-start; }
   .homelab-callout a { width: 100%; }
   .contact-actions { flex-direction: column; width: 100%; }

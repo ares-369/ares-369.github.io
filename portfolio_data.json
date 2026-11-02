@@ -15,8 +15,8 @@
   "stats": {
     "yearsExperience": "4+",
     "socTier": "L2",
-    "homelabNodes": "30+",
-    "wazuhAgents": "27"
+    "rangeNodes": "30+",
+    "telemetrySensors": "27"
   },
   "pillars": [
     {
@@ -171,11 +171,11 @@
       "highlight": false
     },
     {
-      "title": "Enterprise SecOps & UK Work Authorization",
-      "inst": "United Kingdom \u00b7 Immediate Availability",
-      "year": "Full Unrestricted Right to Work",
+      "title": "Enterprise SecOps & Professional Availability",
+      "inst": "Immediate Availability \u00b7 Enterprise & Global",
+      "year": "Full Professional Availability",
       "tag": "PROFESSIONAL STATUS & ELIGIBILITY",
-      "desc": "Full professional authorization to work in the United Kingdom with immediate availability for senior cyber security analyst, incident response, and threat hunting positions.",
+      "desc": "Available immediately for senior cyber security analyst, incident response, and threat hunting positions across enterprise security operations environments.",
       "icon": "mdi-shield-account-outline",
       "highlight": false
     }
